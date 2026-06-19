@@ -1,24 +1,35 @@
-function ProductCard({ image, name, price }) {
+import { Link } from "react-router-dom";
+
+function ProductCard({ product }) {
   return (
-    <div
-      style={{
-        border: "1px solid #ccc",
-        padding: "10px",
-        width: "250px",
-      }}
-    >
+    <div className="card h-100 shadow-sm">
+
       <img
-        src={image}
-        alt={name}
-        width="100%"
-        height="200"
+        src={
+          product.images?.[0] ||
+          "https://via.placeholder.com/300"
+        }
+        className="card-img-top"
+        alt={product.title}
       />
 
-      <h3>{name}</h3>
+      <div className="card-body">
+        <h5>{product.title}</h5>
 
-      <p>₹{price}</p>
+        <p>
+          {product.description?.substring(0, 80)}
+          ...
+        </p>
 
-      <button>Add to Cart</button>
+        <h6>₹{product.price}</h6>
+
+        <Link
+          to={`/product/${product._id}`}
+          className="btn btn-dark"
+        >
+          View Details
+        </Link>
+      </div>
     </div>
   );
 }

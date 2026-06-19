@@ -1,34 +1,109 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 function Navbar() {
+  const { cartItems } = useCart();
+  const navigate = useNavigate();
+
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    navigate("/");
+    window.location.reload();
+  };
+
+  const linkStyle = {
+    color: "#fff",
+    textDecoration: "none",
+  };
+
   return (
-    <nav>
-      <h2>PrintStore</h2>
+    <nav
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "15px 30px",
+        background: "#222",
+        color: "#fff",
+      }}
+    >
+      <h2 style={{ margin: 0 }}>PrintStore</h2>
 
-      <ul style={{ display: "flex", gap: "20px", listStyle: "none" }}>
+      <ul
+        style={{
+          display: "flex",
+          gap: "20px",
+          listStyle: "none",
+          margin: 0,
+          padding: 0,
+          alignItems: "center",
+        }}
+      >
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" style={linkStyle}>
+            Home
+          </Link>
         </li>
 
         <li>
-          <Link to="/products">Products</Link>
+          <Link to="/products" style={linkStyle}>
+            Products
+          </Link>
         </li>
 
-        <li>
-          <Link to="/cart">Cart</Link>
-        </li>
+        {user && (
+          <li>
+            <Link to="/cart" style={linkStyle}>
+              Cart ({totalItems})
+            </Link>
+          </li>
+        )}
 
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
+        {!user ? (
+          <>
+            <li>
+              <Link to="/login" style={linkStyle}>
+                Login
+              </Link>
+            </li>
 
-        <li>
-          <Link to="/register">Register</Link>
-        </li>
+            <li>
+              <Link to="/register" style={linkStyle}>
+                Register
+              </Link>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <Link to="/profile" style={linkStyle}>
+                👋 {user.name}
+              </Link>
+            </li>
 
-        <li>
-          <Link to="/profile">Profile</Link>
-        </li>
+            <li>
+              <button
+                onClick={logout}
+                style={{
+                  background: "#dc3545",
+                  color: "#fff",
+                  border: "none",
+                  padding: "8px 12px",
+                  borderRadius: "5px",
+                  cursor: "pointer",
+                }}
+              >
+                Logout
+              </button>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );
