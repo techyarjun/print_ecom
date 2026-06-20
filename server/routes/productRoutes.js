@@ -1,37 +1,59 @@
+// const express = require("express");
+// const router = express.Router();
+// const Product = require("../models/Product");
+
+// // Get all products
+// router.get("/", async (req, res) => {
+//   try {
+//     const products = await Product.find();
+
+//     res.status(200).json(products);
+//   } catch (error) {
+//     res.status(500).json({
+//       message: error.message,
+//     });
+//   }
+// });
+
+// // Get single product
+// router.get("/:id", async (req, res) => {
+//   try {
+//     const product = await Product.findById(req.params.id);
+
+//     if (!product) {
+//       return res.status(404).json({
+//         message: "Product not found",
+//       });
+//     }
+
+//     res.status(200).json(product);
+//   } catch (error) {
+//     res.status(500).json({
+//       message: error.message,
+//     });
+//   }
+// });
+
+// module.exports = router;
 const express = require("express");
 const router = express.Router();
-const Product = require("../models/Product");
 
-// Get all products
-router.get("/", async (req, res) => {
-  try {
-    const products = await Product.find();
+const {
+  getProducts,
+  getProductById,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+} = require("../controllers/productController");
 
-    res.status(200).json(products);
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
-});
+router.get("/", getProducts);
 
-// Get single product
-router.get("/:id", async (req, res) => {
-  try {
-    const product = await Product.findById(req.params.id);
+router.get("/:id", getProductById);
 
-    if (!product) {
-      return res.status(404).json({
-        message: "Product not found",
-      });
-    }
+router.post("/", createProduct);
 
-    res.status(200).json(product);
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
-});
+router.put("/:id", updateProduct);
+
+router.delete("/:id", deleteProduct);
 
 module.exports = router;
