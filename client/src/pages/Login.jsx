@@ -104,7 +104,9 @@ function Login() {
 
       // alert("Login Successful");
 
-      navigate("/profile");
+      // navigate("/profile");
+      window.location.href = "/profile";
+      
     } catch (err) {
       alert(
         err.response?.data?.message ||

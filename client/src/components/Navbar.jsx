@@ -9,6 +9,8 @@ function Navbar() {
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
+  const token = localStorage.getItem("token");
+
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -102,6 +104,32 @@ function Navbar() {
                 Logout
               </button>
             </li>
+
+            {token && (
+              <>
+                <li>
+                  <Link to="/orders" style={linkStyle}>
+                    Orders
+                  </Link>
+                </li>
+
+                {user?.role === "admin" && (
+                  <li>
+                    <Link
+                      to="/admin"
+                      style={{
+                        ...linkStyle,
+                        background: "#0d6efd",
+                        padding: "8px 12px",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      Admin Panel
+                    </Link>
+                  </li>
+                )}
+              </>
+            )}
           </>
         )}
       </ul>
