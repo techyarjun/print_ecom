@@ -19,9 +19,19 @@
   },
   "homepage": "https://github.com/techyarjun/print_ecom#readme",
   "dependencies": {
+    "@react-three/drei": "^10.7.7",
     "axios": "^1.18.0",
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
-    "jsonwebtoken": "^9.0.3"
+    "crypto": "^1.0.1",
+    "html2canvas": "^1.4.1",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.2.0",
+    "nodemailer": "^9.0.1",
+    "razorpay": "^2.9.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-draggable": "^4.7.0",
+    "three": "^0.184.0"
   }
 }
