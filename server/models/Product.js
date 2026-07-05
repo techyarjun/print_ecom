@@ -98,10 +98,20 @@ const productSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+
+    customizationFront: {
+      type: String,
+      default: "",
+    },
+
+    customizationBack: {
+      type: String,
+      default: "",
+    },
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 module.exports = mongoose.model("Product", productSchema);
