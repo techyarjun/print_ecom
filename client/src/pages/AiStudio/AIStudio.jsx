@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./AIStyles/AIStudio.css";
+import "./styles/ai/AIStudio.css";
 
 import ProductSelector from "./components/ai/ProductSelector";
 
