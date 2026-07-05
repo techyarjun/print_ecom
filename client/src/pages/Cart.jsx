@@ -1,6 +1,7 @@
 import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { getImageUrl } from "../utils/imageUrl";
 
 function Cart() {
   const { cartItems, removeFromCart, increaseQty, decreaseQty, clearCart } =
@@ -27,9 +28,14 @@ function Cart() {
                 <div className="row align-items-center">
                   <div className="col-md-2">
                     <img
-                      src={item.images?.[0]}
+                      src={getImageUrl(item.images?.[0])}
                       alt={item.title}
                       className="img-fluid rounded"
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                        objectFit: "cover",
+                      }}
                     />
                   </div>
 

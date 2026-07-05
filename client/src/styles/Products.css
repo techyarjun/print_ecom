@@ -1,0 +1,42 @@
+.products-page{
+    width:100%;
+    background:#f8fafc;
+    min-height:100vh;
+}
+
+.products-wrapper{
+    max-width:1400px;
+    margin:auto;
+    padding:40px 30px 80px;
+}
+
+.products-layout{
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:35px;
+    align-items:start;
+}
+
+.products-content{
+    width:100%;
+}
+
+@media(max-width:1100px){
+
+.products-layout{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.products-wrapper{
+
+padding:20px;
+
+}
+
+}

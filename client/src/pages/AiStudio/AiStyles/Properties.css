@@ -1,0 +1,173 @@
+/* ==========================================
+   PROPERTIES PANEL
+========================================== */
+
+.properties-panel {
+  width: 210px;
+  min-width: 210px;
+
+  height: 100%;
+
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border-left: 1px solid #e2e8f0;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.properties-header {
+  height: 54px;
+
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid #e2e8f0;
+
+  box-sizing: border-box;
+}
+
+.properties-header h3 {
+  margin: 0;
+
+  font-size: 15px;
+
+  color: #0f172a;
+}
+
+
+/* ==========================================
+   EMPTY
+========================================== */
+
+.properties-empty {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+
+  color: #94a3b8;
+}
+
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.properties-content {
+  padding: 16px;
+
+  overflow-y: auto;
+}
+
+
+/* ==========================================
+   PROPERTY GROUP
+========================================== */
+
+.property-group {
+  margin-bottom: 18px;
+}
+
+.property-group label {
+  margin-bottom: 7px;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #475569;
+}
+
+
+/* ==========================================
+   TEXT INPUT
+========================================== */
+
+.property-group input[type="text"] {
+  width: 100%;
+
+  padding: 8px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+
+  font-size: 12px;
+
+  outline: none;
+
+  box-sizing: border-box;
+}
+
+.property-group input[type="text"]:focus {
+  border-color: #6366f1;
+}
+
+
+/* ==========================================
+   RANGE
+========================================== */
+
+.property-group input[type="range"] {
+  width: 100%;
+
+  cursor: pointer;
+}
+
+
+/* ==========================================
+   COLOR
+========================================== */
+
+.color-input {
+  width: 100%;
+  height: 35px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+
+/* ==========================================
+   DELETE
+========================================== */
+
+.delete-element-btn {
+  width: 100%;
+
+  padding: 9px;
+
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+
+  background: #fff1f2;
+
+  color: #dc2626;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.delete-element-btn:hover {
+  background: #fee2e2;
+}

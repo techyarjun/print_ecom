@@ -1,0 +1,68 @@
+/* ==========================================
+   EDITABLE TEXT
+========================================== */
+
+.editable-text {
+
+    position: absolute;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 40px;
+    min-height: 32px;
+
+    padding: 4px 8px;
+
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.2;
+
+    color: #111827;
+
+    white-space: nowrap;
+
+    cursor: move;
+
+    user-select: none;
+
+    border: 2px solid transparent;
+    border-radius: 6px;
+
+    transition: all 0.2s ease;
+
+    z-index: 10;
+}
+
+/* Hover */
+
+.editable-text:hover {
+
+    border-color: rgba(79, 70, 229, 0.35);
+
+    background: rgba(79, 70, 229, 0.05);
+}
+
+/* Selected (for next step) */
+
+.editable-text.selected {
+
+    border-color: #4f46e5;
+
+    background: rgba(79, 70, 229, 0.08);
+
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+/* Editing mode (future) */
+
+.editable-text:focus {
+
+    outline: none;
+
+    border-color: #4f46e5;
+
+    background: white;
+}

@@ -8,9 +8,7 @@ function AdminProducts() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get(
-        "http://localhost:5000/api/products"
-      );
+      const res = await axios.get("http://localhost:5000/api/products");
 
       setProducts(res.data);
     } catch (error) {
@@ -23,15 +21,13 @@ function AdminProducts() {
 
   const deleteProduct = async (id) => {
     const confirmDelete = window.confirm(
-      "Are you sure you want to delete this product?"
+      "Are you sure you want to delete this product?",
     );
 
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(
-        `http://localhost:5000/api/products/${id}`
-      );
+      await axios.delete(`http://localhost:5000/api/products/${id}`);
 
       setProducts(products.filter((p) => p._id !== id));
 
@@ -64,12 +60,7 @@ function AdminProducts() {
         </Link>
       </div>
 
-      <table
-        border="1"
-        cellPadding="10"
-        cellSpacing="0"
-        width="100%"
-      >
+      <table border="1" cellPadding="10" cellSpacing="0" width="100%">
         <thead>
           <tr>
             <th>Image</th>
@@ -87,9 +78,20 @@ function AdminProducts() {
             <tr key={product._id}>
               <td>
                 <img
-                  src={product.images?.[0]}
+                  src={
+                    product.images?.[0]
+                      ? product.images[0].startsWith("http")
+                        ? product.images[0]
+                        : `http://localhost:5000${product.images[0]}`
+                      : "https://via.placeholder.com/60"
+                  }
                   alt={product.title}
                   width="60"
+                  height="60"
+                  style={{
+                    objectFit: "cover",
+                    borderRadius: "6px",
+                  }}
                 />
               </td>
 
@@ -101,21 +103,15 @@ function AdminProducts() {
 
               <td>{product.stock}</td>
 
-              <td>
-                {product.featured ? "Yes" : "No"}
-              </td>
+              <td>{product.featured ? "Yes" : "No"}</td>
 
               <td>
-                <Link
-                  to={`/admin/edit-product/${product._id}`}
-                >
+                <Link to={`/admin/edit-product/${product._id}`}>
                   <button>Edit</button>
                 </Link>
 
                 <button
-                  onClick={() =>
-                    deleteProduct(product._id)
-                  }
+                  onClick={() => deleteProduct(product._id)}
                   style={{
                     marginLeft: "10px",
                   }}

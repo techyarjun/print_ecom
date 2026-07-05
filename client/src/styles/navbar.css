@@ -1,0 +1,271 @@
+/* =========================
+   TOP STRIP
+========================= */
+
+.top-strip {
+  width: 100%;
+  height: 45px;
+  background: #111;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.marquee {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: scrollLeft 20s linear infinite;
+}
+
+.marquee span {
+  margin-right: 80px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.marquee b {
+  color: #ff7a00;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar-custom {
+  height: 95px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  background: white;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 95px;
+  object-fit: contain;
+}
+
+/* =========================
+   CENTER LINKS
+========================= */
+
+.navbar-center {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ff7a00;
+}
+
+/* ACTIVE LINK */
+
+.nav-link.active {
+  color: #ff7a00;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -10px;
+
+  width: 100%;
+  height: 3px;
+
+  background: #ff7a00;
+  border-radius: 10px;
+}
+
+/* =========================
+   RIGHT SECTION
+========================= */
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.icon-link,
+.search-icon {
+  position: relative;
+  font-size: 24px;
+  color: #111;
+  cursor: pointer;
+}
+
+.icon-link {
+  text-decoration: none;
+}
+
+.icon-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+  background: #ff7a00;
+  color: white;
+
+  font-size: 11px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orders-link {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+}
+
+.admin-btn {
+  background: #111;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.logout-btn {
+  border: none;
+  background: #ff7a00;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* =========================
+   SEARCH BAR
+========================= */
+
+.search-bar {
+  width: 280px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+
+  background: #f8f8f8;
+  border: 1px solid #eaeaea;
+  border-radius: 50px;
+
+  padding: 0 15px;
+}
+
+.search-icon {
+  color: #777;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+
+  color: #000;
+  caret-color: #000;
+
+  font-size: 14px;
+}
+
+.clear-icon {
+  cursor: pointer;
+  color: #777;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.clear-icon:hover {
+  color: #ff7a00;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 1000px) {
+  .navbar-center {
+    display: none;
+  }
+
+  .top-strip {
+    display: none;
+  }
+
+  .logo-img {
+    height: 70px;
+  }
+
+  .search-bar {
+    width: 180px;
+  }
+
+  .navbar-custom {
+    padding: 0 20px;
+  }
+}
+
+.ai-link {
+  position: relative;
+  color: #6d28d9;
+  font-weight: 700;
+}
+
+.ai-link::after {
+  content: "NEW";
+  position: absolute;
+  top: -8px;
+  right: -18px;
+  background: linear-gradient(135deg, #8b5cf6, #2563eb);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}

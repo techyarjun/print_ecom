@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "../../styles/AdminDashboard.css";
+
 
 function AdminDashboard() {
   const [stats, setStats] = useState({
@@ -96,6 +98,13 @@ function AdminDashboard() {
         <Link to="/admin/products" className="btn btn-success">
           + Add Product
         </Link>
+
+        <li>
+          <Link to="/admin/contacts" className="admin-card">
+            <h3>📩 Contact Messages</h3>
+            <p>View and manage customer inquiries</p>
+          </Link>
+        </li>
       </div>
     </div>
   );

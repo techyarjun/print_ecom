@@ -1,0 +1,242 @@
+.product-sidebar{
+width:280px;
+position:sticky;
+top:90px;
+}
+
+.sidebar-card{
+
+background:#fff;
+
+border-radius:18px;
+
+padding:22px;
+
+border:1px solid #ECEEF2;
+
+box-shadow:0 8px 30px rgba(0,0,0,.05);
+
+}
+
+.sidebar-top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:15px;
+
+}
+
+.sidebar-top h3{
+
+font-size:22px;
+
+font-weight:700;
+
+color:#111827;
+
+}
+
+.clear-btn{
+
+border:none;
+
+background:none;
+
+color:#2563EB;
+
+cursor:pointer;
+
+font-weight:600;
+
+}
+
+.sidebar-item{
+
+border-top:1px solid #205891;
+
+padding:18px 0;
+
+}
+
+.sidebar-title{
+
+width:100%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:none;
+
+border:none;
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:600;
+
+color:#111827;
+
+padding:0;
+
+}
+
+.sidebar-content{
+
+display:flex;
+
+flex-direction:column;
+
+gap:10px;
+
+margin-top:18px;
+
+animation:fade .25s;
+
+}
+
+.filter-chip{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid #E5E7EB;
+    background:#FFFFFF;
+    color:#374151;
+    border-radius:10px;
+    cursor:pointer;
+    text-align:left;
+    font-size:14px;
+    font-weight:500;
+    transition:.25s;
+}
+
+.filter-chip:hover{
+    background:#F8FAFC;
+    border-color:#2563EB;
+    color:#2563EB;
+}
+
+.filter-chip.active{
+    background:#2563EB;
+    border-color:#2563EB;
+    color:#FFFFFF;
+}
+
+
+.size-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:10px;
+
+margin-top:18px;
+
+animation:fade .25s;
+
+}
+
+.size-chip{
+
+height:42px;
+
+border:1px solid #E5E7EB;
+
+background:white;
+
+color:#070c13d9;
+
+border-radius:10px;
+
+cursor:pointer;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.size-chip:hover{
+
+background:#111827;
+
+color:rgba(234, 232, 232, 0.57);
+
+}
+
+.color-grid{
+
+display:flex;
+
+gap:12px;
+
+margin-top:18px;
+
+animation:fade .25s;
+
+}
+
+.color-circle{
+
+width:28px;
+
+height:28px;
+
+border-radius:50%;
+
+border:2px solid #ECECEC;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.color-circle:hover{
+
+transform:scale(1.15);
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(-5px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+@media(max-width:992px){
+
+.product-sidebar{
+
+width:100%;
+
+position:relative;
+
+top:0;
+
+margin-bottom:25px;
+
+}
+
+}

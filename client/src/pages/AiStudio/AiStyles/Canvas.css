@@ -1,0 +1,235 @@
+/* ==========================================
+   AI STUDIO CANVAS
+========================================== */
+
+.canvas {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(148, 163, 184, 0.25) 1px,
+      transparent 1px
+    );
+
+  background-size: 20px 20px;
+  background-color: #f8fafc;
+}
+
+
+/* ==========================================
+   WORKSPACE
+========================================== */
+
+.canvas-workspace {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px;
+}
+
+
+/* ==========================================
+   PRODUCT STAGE
+========================================== */
+
+.product-stage {
+  position: relative;
+
+  width: 600px;
+  height: 600px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+
+/* ==========================================
+   PRODUCT IMAGE
+========================================== */
+
+.canvas-product-image {
+  width: 500px;
+  height: 500px;
+
+  object-fit: contain;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+
+/* ==========================================
+   PRINT AREA
+========================================== */
+
+.print-area {
+  position: absolute;
+
+  width: 260px;
+  height: 320px;
+
+  top: 140px;
+  left: 170px;
+
+  border: 2px dashed rgba(99, 102, 241, 0.7);
+
+  overflow: hidden;
+
+  z-index: 5;
+}
+
+
+/* ==========================================
+   ELEMENT
+========================================== */
+
+.canvas-element {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  user-select: none;
+
+  transform-origin: center;
+
+  border: 1px solid transparent;
+
+  box-sizing: border-box;
+}
+
+
+/* ==========================================
+   SELECTED ELEMENT
+========================================== */
+
+.canvas-element.selected {
+  border: 2px solid #6366f1;
+}
+
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.canvas-element {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: grab;
+
+  user-select: none;
+  touch-action: none;
+
+  transform-origin: center;
+
+  border: 1px solid transparent;
+
+  box-sizing: border-box;
+}
+
+.canvas-element:active {
+  cursor: grabbing;
+}
+
+/* ==========================================
+   TEXT CONTENT
+========================================== */
+
+.element-text {
+  width: 100%;
+  text-align: center;
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+
+/* ==========================================
+   RESIZE HANDLES
+========================================== */
+
+.resize-handle {
+  position: absolute;
+
+  width: 10px;
+  height: 10px;
+
+  background: #ffffff;
+
+  border: 2px solid #6366f1;
+  border-radius: 50%;
+
+  z-index: 20;
+
+  touch-action: none;
+}
+
+
+/* TOP LEFT */
+
+.resize-handle.nw {
+  top: -6px;
+  left: -6px;
+
+  cursor: nwse-resize;
+}
+
+
+/* TOP RIGHT */
+
+.resize-handle.ne {
+  top: -6px;
+  right: -6px;
+
+  cursor: nesw-resize;
+}
+
+
+/* BOTTOM LEFT */
+
+.resize-handle.sw {
+  bottom: -6px;
+  left: -6px;
+
+  cursor: nesw-resize;
+}
+
+
+/* BOTTOM RIGHT */
+
+.resize-handle.se {
+  bottom: -6px;
+  right: -6px;
+
+  cursor: nwse-resize;
+}

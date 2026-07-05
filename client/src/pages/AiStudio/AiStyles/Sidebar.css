@@ -1,0 +1,64 @@
+.sidebar {
+    width: 240px;
+    background: #ffffff;
+    border-right: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 18px;
+}
+
+
+.sidebar-header {
+    margin-bottom: 35px;
+}
+
+.sidebar-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.sidebar-header p {
+    color: #6b7280;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.sidebar-tools {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tool-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 14px 16px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.tool-btn:hover {
+    background: #f3f4f6;
+}
+
+.tool-icon {
+    font-size: 22px;
+    color: #4f46e5;
+}
+
+.tool-btn span:last-child {
+    font-size: 15px;
+    font-weight: 500;
+    color: #374151;
+}
