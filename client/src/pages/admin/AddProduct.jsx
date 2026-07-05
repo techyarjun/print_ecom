@@ -55,7 +55,7 @@ function AddProduct() {
       const uploadedImages = uploadRes.data.images;
 
       await axios.post(
-        "http://localhost:5000/api/products",
+        "https://print-ecom-server.onrender.com/api/products",
         {
           title: formData.title,
           description: formData.description,

@@ -8,7 +8,7 @@ function AdminProducts() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/products");
+      const res = await axios.get("https://print-ecom-server.onrender.com/api/products");
 
       setProducts(res.data);
     } catch (error) {
@@ -27,7 +27,7 @@ function AdminProducts() {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`);
+      await axios.delete(`https://print-ecom-server.onrender.com/api/products/${id}`);
 
       setProducts(products.filter((p) => p._id !== id));
 
@@ -82,7 +82,7 @@ function AdminProducts() {
                     product.images?.[0]
                       ? product.images[0].startsWith("http")
                         ? product.images[0]
-                        : `http://localhost:5000${product.images[0]}`
+                        : `https://print-ecom-server.onrender.com${product.images[0]}`
                       : "https://via.placeholder.com/60"
                   }
                   alt={product.title}

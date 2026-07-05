@@ -15,7 +15,7 @@ function Profile() {
   const fetchOrders = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/orders/user/${user._id}`
+        `https://print-ecom-server.onrender.com/api/orders/user/${user._id}`
       );
 
       setOrders(res.data);

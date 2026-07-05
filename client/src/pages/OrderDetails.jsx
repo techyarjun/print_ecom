@@ -14,7 +14,7 @@ function OrderDetails() {
   const fetchOrder = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/orders/${id}`
+        `https://print-ecom-server.onrender.com/api/orders/${id}`
       );
 
       setOrder(res.data);

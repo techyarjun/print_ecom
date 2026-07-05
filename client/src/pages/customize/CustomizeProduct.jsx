@@ -50,7 +50,7 @@ function CustomizeProduct() {
   const fetchProduct = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/products/${id}`,
+        `https://print-ecom-server.onrender.com/api/products/${id}`,
       );
 
       setProduct(data);
@@ -142,7 +142,7 @@ function CustomizeProduct() {
         uploadData.append("image", designFile);
 
         const uploadRes = await axios.post(
-          "http://localhost:5000/api/upload/custom-design",
+          "https://print-ecom-server.onrender.com/api/upload/custom-design",
           uploadData,
           {
             headers: {
@@ -166,7 +166,7 @@ function CustomizeProduct() {
       frontData.append("image", frontBlob, "front-preview.png");
 
       const frontUpload = await axios.post(
-        "http://localhost:5000/api/upload/custom-design",
+        "https://print-ecom-server.onrender.com/api/upload/custom-design",
         frontData,
         {
           headers: {
@@ -186,7 +186,7 @@ function CustomizeProduct() {
       backData.append("image", backBlob, "back-preview.png");
 
       const backUpload = await axios.post(
-        "http://localhost:5000/api/upload/custom-design",
+        "https://print-ecom-server.onrender.com/api/upload/custom-design",
         backData,
         {
           headers: {
@@ -200,7 +200,7 @@ function CustomizeProduct() {
      const token = localStorage.getItem("token");
 
 await axios.post(
-  "http://localhost:5000/api/custom-orders",
+  "https://print-ecom-server.onrender.com/api/custom-orders",
   {
     product: id,
 

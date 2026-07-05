@@ -23,7 +23,7 @@ function AdminDashboard() {
       console.log("TOKEN =", token);
 
       const { data } = await axios.get(
-        "http://localhost:5000/api/admin/stats",
+        "https://print-ecom-server.onrender.com/api/admin/stats",
         {
           headers: {
             Authorization: `Bearer ${token}`,

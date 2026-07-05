@@ -7,5 +7,5 @@ export const getImageUrl = (image) => {
     return image;
   }
 
-  return `http://localhost:5000${image}`;
+  return `https://print-ecom-server.onrender.com${image}`;
 };

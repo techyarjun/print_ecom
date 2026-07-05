@@ -10,7 +10,7 @@ function CustomOrders() {
 
   const fetchOrders = async () => {
     const res = await axios.get(
-      "http://localhost:5000/api/custom-orders"
+      "https://print-ecom-server.onrender.com/api/custom-orders"
     );
 
     setOrders(res.data);
@@ -18,7 +18,7 @@ function CustomOrders() {
 
   const updateStatus = async (id, status) => {
     await axios.put(
-      `http://localhost:5000/api/custom-orders/${id}/status`,
+      `https://print-ecom-server.onrender.com/api/custom-orders/${id}/status`,
       { status }
     );
 
@@ -29,7 +29,7 @@ function CustomOrders() {
     if (!window.confirm("Delete order?")) return;
 
     await axios.delete(
-      `http://localhost:5000/api/custom-orders/${id}`
+      `https://print-ecom-server.onrender.com/api/custom-orders/${id}`
     );
 
     fetchOrders();
@@ -157,7 +157,7 @@ function CustomOrders() {
                 <td>
                   {order.designImage && (
                     <img
-                      src={`http://localhost:5000${order.designImage}`}
+                      src={`https://print-ecom-server.onrender.com${order.designImage}`}
                       alt=""
                       width="60"
                     />

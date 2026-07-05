@@ -69,6 +69,8 @@
 
 // export default ProductDetails;
 
+
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
@@ -96,7 +98,7 @@ function ProductDetails() {
   const fetchProduct = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/products/${id}`
+        `https://print-ecom-server.onrender.com/api/products/${id}`
       );
 
       setProduct(res.data);

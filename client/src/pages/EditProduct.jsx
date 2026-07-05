@@ -23,7 +23,7 @@ function EditProduct() {
 
   const fetchProduct = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/products/${id}`);
+      const res = await axios.get(`https://print-ecom-server.onrender.com/api/products/${id}`);
 
       setFormData({
         title: res.data.title || "",
@@ -92,7 +92,7 @@ function EditProduct() {
         uploadedImages = uploadRes.data.images;
       }
 
-      await axios.put(`http://localhost:5000/api/products/${id}`, {
+      await axios.put(`https://print-ecom-server.onrender.com/api/products/${id}`, {
         title: formData.title,
         description: formData.description,
         category: formData.category,

@@ -11,7 +11,7 @@ function AdminContacts() {
   const fetchContacts = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/contacts"
+        "https://print-ecom-server.onrender.com/api/contacts"
       );
 
       setContacts(res.data.contacts);
@@ -23,7 +23,7 @@ function AdminContacts() {
   const markReplied = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/contacts/${id}`,
+        `https://print-ecom-server.onrender.com/api/contacts/${id}`,
         { status: "Replied" }
       );
 
@@ -38,7 +38,7 @@ function AdminContacts() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/contacts/${id}`
+        `https://print-ecom-server.onrender.com/api/contacts/${id}`
       );
 
       fetchContacts();

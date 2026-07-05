@@ -44,7 +44,7 @@ function Products() {
 
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/products?search=${keyword}&category=${category}&sort=${sort}&price=${priceRange}`,
+        `https://print-ecom-server.onrender.com/api/products?search=${keyword}&category=${category}&sort=${sort}&price=${priceRange}`,
       );
 
       setProducts(res.data);

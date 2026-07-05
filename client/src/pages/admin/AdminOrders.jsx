@@ -12,7 +12,7 @@ function AdminOrders() {
 
   const fetchOrders = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/orders");
+      const { data } = await axios.get("https://print-ecom-server.onrender.com/api/orders");
 
       setOrders(data);
     } catch (error) {
@@ -23,7 +23,7 @@ function AdminOrders() {
   const fetchCustomOrders = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/api/custom-orders",
+        "https://print-ecom-server.onrender.com/api/custom-orders",
       );
 
       setCustomOrders(data);
@@ -37,7 +37,7 @@ function AdminOrders() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:5000/api/orders/admin/${id}`,
+        `https://print-ecom-server.onrender.com/api/orders/admin/${id}`,
         {
           orderStatus: status,
         },

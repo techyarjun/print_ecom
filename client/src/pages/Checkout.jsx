@@ -48,7 +48,7 @@ function Checkout() {
       };
 
       const res = await axios.post(
-        "http://localhost:5000/api/orders",
+        "https://print-ecom-server.onrender.com/api/orders",
         orderData,
       );
 
@@ -69,7 +69,7 @@ function Checkout() {
       const user = JSON.parse(localStorage.getItem("user"));
 
       const { data } = await axios.post(
-        "http://localhost:5000/api/payment/create-order",
+        "https://print-ecom-server.onrender.com/api/payment/create-order",
         {
           amount: total,
         },
@@ -87,7 +87,7 @@ function Checkout() {
 
         handler: async function (response) {
           const verify = await axios.post(
-            "http://localhost:5000/api/payment/verify-payment",
+            "https://print-ecom-server.onrender.com/api/payment/verify-payment",
             response,
           );
 
@@ -109,7 +109,7 @@ function Checkout() {
               paymentStatus: "Paid",
             };
 
-            await axios.post("http://localhost:5000/api/orders", orderData);
+            await axios.post("https://print-ecom-server.onrender.com/api/orders", orderData);
 
             alert("Payment Successful & Order Placed!");
 
