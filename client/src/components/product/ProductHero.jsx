@@ -87,7 +87,7 @@ function ProductHero() {
           <div className="hero-image-card">
 
             <img
-              src="/images/hero-product.png"
+              src="/assets/hero-bg.png"
               alt="Premium Merchandise"
             />
 
