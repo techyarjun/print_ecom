@@ -1,3 +1,5 @@
+export const API_URL = import.meta.env.VITE_API_URL || "https://print-ecom-server.onrender.com";
+
 export const getImageUrl = (image) => {
   if (!image) {
     return "https://via.placeholder.com/300";
@@ -7,5 +9,5 @@ export const getImageUrl = (image) => {
     return image;
   }
 
-  return `https://print-ecom-server.onrender.com${image}`;
-};
+  return `${API_URL}${image}`;
+};

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { getImageUrl } from "../../utils/imageUrl";
 
 function CustomOrders() {
   const [orders, setOrders] = useState([]);
@@ -157,7 +158,7 @@ function CustomOrders() {
                 <td>
                   {order.designImage && (
                     <img
-                      src={`https://print-ecom-server.onrender.com${order.designImage}`}
+                      src={getImageUrl(order.designImage)}
                       alt=""
                       width="60"
                     />

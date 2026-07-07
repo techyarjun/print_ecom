@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { getImageUrl } from "../utils/imageUrl";
 
 function EditProduct() {
   const { id } = useParams();
@@ -12,6 +13,7 @@ function EditProduct() {
     category: "",
     price: "",
     stock: "",
+    images: [],
     image: "",
   });
 
@@ -31,12 +33,14 @@ function EditProduct() {
         category: res.data.category || "",
         price: res.data.price || "",
         stock: res.data.stock || "",
+        images: res.data.images || [],
         image: res.data.images?.[0] || "",
       });
     } catch (error) {
       console.log(error);
     }
   };
+
 
   const handleChange = (e) => {
     setFormData({
@@ -181,7 +185,7 @@ function EditProduct() {
           {formData.images?.map((img, index) => (
             <img
               key={index}
-              src={img}
+              src={getImageUrl(img)}
               alt=""
               width="100"
               height="100"

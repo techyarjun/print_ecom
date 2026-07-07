@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { getImageUrl } from "../../utils/imageUrl";
 
 function AdminProducts() {
   const [products, setProducts] = useState([]);
@@ -78,13 +79,7 @@ function AdminProducts() {
             <tr key={product._id}>
               <td>
                 <img
-                  src={
-                    product.images?.[0]
-                      ? product.images[0].startsWith("http")
-                        ? product.images[0]
-                        : `https://print-ecom-server.onrender.com${product.images[0]}`
-                      : "https://via.placeholder.com/60"
-                  }
+                  src={getImageUrl(product.images?.[0])}
                   alt={product.title}
                   width="60"
                   height="60"
@@ -94,6 +89,7 @@ function AdminProducts() {
                   }}
                 />
               </td>
+
 
               <td>{product.title}</td>
 
