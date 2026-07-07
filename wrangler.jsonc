@@ -1,0 +1,10 @@
+{
+  "name": "print-ecom",
+  "account_id": "YOUR_ACCOUNT_ID",
+  "compatibility_date": "2026-07-08",
+  "type": "javascript"
+
+  // If you need a specific route, uncomment and set these:
+  // "zone_id": "YOUR_ZONE_ID",
+  // "route": "example.com/*"
+}

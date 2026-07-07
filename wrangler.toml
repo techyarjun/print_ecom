@@ -1,0 +1,8 @@
+name = "print-ecom"
+type = "javascript"
+account_id = "YOUR_ACCOUNT_ID"
+compatibility_date = "2026-07-08"
+
+# If you deploy via a route, add zone_id and route.
+# zone_id = "YOUR_ZONE_ID"
+# route = "example.com/*"

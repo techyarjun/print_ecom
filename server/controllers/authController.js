@@ -91,15 +91,54 @@ const loginUser = async (req, res) => {
 };
 
 const getProfile = async (req, res) => {
-  const user = await User.findById(
-    req.user.id
-  ).select("-password");
+  const user = await User.findById(req.user.id).select("-password");
 
   res.json(user);
+};
+
+const updateProfile = async (req, res) => {
+  const { name, email, phone, password } = req.body;
+
+  const user = await User.findById(req.user.id);
+
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  if (email && email !== user.email) {
+    const existingEmail = await User.findOne({ email });
+    if (existingEmail) {
+      return res.status(400).json({ message: "Email already in use" });
+    }
+  }
+
+  if (phone && phone !== user.phone) {
+    const existingPhone = await User.findOne({ phone });
+    if (existingPhone) {
+      return res.status(400).json({ message: "Phone already in use" });
+    }
+  }
+
+  user.name = name || user.name;
+  user.email = email || user.email;
+  user.phone = phone || user.phone;
+
+  if (password) {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    user.password = hashedPassword;
+  }
+
+  await user.save();
+
+  const updatedUser = user.toObject();
+  delete updatedUser.password;
+
+  res.json(updatedUser);
 };
 
 module.exports = {
   registerUser,
   loginUser,
   getProfile,
+  updateProfile,
 };
