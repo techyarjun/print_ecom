@@ -74,7 +74,7 @@ function Products() {
 
   return (
     <>
-      <BannerSlider />
+      {/* <BannerSlider /> */}
 
 
       <div className="products-page">
