@@ -100,6 +100,18 @@ app.get("/", (req, res) => {
   res.send("API Running");
 });
 
+// Debug endpoint - reports presence (not values) of critical env vars
+app.get("/api/debug/env", (req, res) => {
+  res.json({
+    cloudinary: {
+      cloudName: !!process.env.CLOUDINARY_CLOUD_NAME,
+      apiKey: !!process.env.CLOUDINARY_API_KEY,
+      apiSecret: !!process.env.CLOUDINARY_API_SECRET,
+    },
+    nodeEnv: process.env.NODE_ENV || null,
+  });
+});
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
