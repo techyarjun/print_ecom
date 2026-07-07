@@ -6,29 +6,25 @@ if (!cloudinaryUrl) {
   throw new Error("CLOUDINARY_URL is missing");
 }
 
-try {
-  const url = new URL(cloudinaryUrl);
+const url = new URL(cloudinaryUrl);
 
-  const apiKey = url.username;
-  const apiSecret = url.password;
-  const cloudName = url.hostname;
+const apiKey = decodeURIComponent(url.username);
+const apiSecret = decodeURIComponent(url.password);
+const cloudName = url.hostname;
 
-  console.log("Cloudinary config presence:", {
-    cloudName: !!cloudName,
-    apiKey: !!apiKey,
-    apiSecret: !!apiSecret,
-  });
+cloudinary.config({
+  cloud_name: cloudName,
+  api_key: apiKey,
+  api_secret: apiSecret,
+  secure: true,
+});
 
-  cloudinary.config({
-    cloud_name: cloudName,
-    api_key: apiKey,
-    api_secret: apiSecret,
-    secure: true,
-  });
+const config = cloudinary.config();
 
-} catch (error) {
-  console.error("Invalid CLOUDINARY_URL format:", error.message);
-  throw error;
-}
+console.log("Cloudinary SDK config:", {
+  cloud_name: !!config.cloud_name,
+  api_key: !!config.api_key,
+  api_secret: !!config.api_secret,
+});
 
 module.exports = cloudinary;
