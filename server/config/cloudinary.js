@@ -1,16 +1,34 @@
 const { v2: cloudinary } = require("cloudinary");
 
-// Render already provides CLOUDINARY_URL
-// Cloudinary SDK automatically reads it from process.env
+const cloudinaryUrl = process.env.CLOUDINARY_URL;
 
-console.log("Cloudinary URL presence:", {
-  cloudinaryUrl: !!process.env.CLOUDINARY_URL,
-});
+if (!cloudinaryUrl) {
+  throw new Error("CLOUDINARY_URL is missing");
+}
 
-if (!process.env.CLOUDINARY_URL) {
-  console.error(
-    "Cloudinary config missing. Set CLOUDINARY_URL in environment variables."
-  );
+try {
+  const url = new URL(cloudinaryUrl);
+
+  const apiKey = url.username;
+  const apiSecret = url.password;
+  const cloudName = url.hostname;
+
+  console.log("Cloudinary config presence:", {
+    cloudName: !!cloudName,
+    apiKey: !!apiKey,
+    apiSecret: !!apiSecret,
+  });
+
+  cloudinary.config({
+    cloud_name: cloudName,
+    api_key: apiKey,
+    api_secret: apiSecret,
+    secure: true,
+  });
+
+} catch (error) {
+  console.error("Invalid CLOUDINARY_URL format:", error.message);
+  throw error;
 }
 
 module.exports = cloudinary;
