@@ -16,7 +16,7 @@ import {
   FiPlus,
 } from "react-icons/fi";
 
-import "/styles/profile.css";
+import "../styles/Profile.css";
 
 const Profile = () => {
   const navigate = useNavigate();
