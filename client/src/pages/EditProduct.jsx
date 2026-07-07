@@ -53,7 +53,7 @@ function EditProduct() {
   //   e.preventDefault();
 
   //   try {
-  //     await axios.put(`http://localhost:5000/api/products/${id}`, {
+  //     await axios.put(`http://print-ecom-server.onrender.com/api/products/${id}`, {
   //       title: formData.title,
   //       description: formData.description,
   //       category: formData.category,

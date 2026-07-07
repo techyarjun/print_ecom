@@ -19,7 +19,7 @@
 
 //   const fetchProduct = async () => {
 //     try {
-//       const res = await axios.get(`http://localhost:5000/api/products/${id}`);
+//       const res = await axios.get(`http://print-ecom-server.onrender.com/api/products/${id}`);
 
 //       setProduct(res.data);
 //     } catch (error) {
@@ -45,7 +45,7 @@
 //   return (
 //     <div className="container mt-5">
 //       <img
-//         src={`http://localhost:5000${product.images?.[0]}`}
+//         src={`http://print-ecom-server.onrender.com${product.images?.[0]}`}
 //         alt={product.title}
 //       />
 //       <h2>{product.title}</h2>
