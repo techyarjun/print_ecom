@@ -44,12 +44,7 @@ function AddProduct() {
 
       const uploadRes = await axios.post(
         "https://print-ecom-server.onrender.com/api/upload/products-multiple",
-        uploadData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
+        uploadData
       );
 
       const uploadedImages = uploadRes.data.images;

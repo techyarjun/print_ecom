@@ -143,12 +143,7 @@ function CustomizeProduct() {
 
         const uploadRes = await axios.post(
           "https://print-ecom-server.onrender.com/api/upload/custom-design",
-          uploadData,
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-          },
+          uploadData
         );
 
         designImageUrl = uploadRes.data.imageUrl;
@@ -167,12 +162,7 @@ function CustomizeProduct() {
 
       const frontUpload = await axios.post(
         "https://print-ecom-server.onrender.com/api/upload/custom-design",
-        frontData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        },
+        frontData
       );
 
       const frontPreviewImage = frontUpload.data.imageUrl;
@@ -187,12 +177,7 @@ function CustomizeProduct() {
 
       const backUpload = await axios.post(
         "https://print-ecom-server.onrender.com/api/upload/custom-design",
-        backData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        },
+        backData
       );
 
       const backPreviewImage = backUpload.data.imageUrl;

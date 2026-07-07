@@ -178,6 +178,12 @@ router.post(
   upload.array("images", 10),
   async (req, res) => {
     try {
+      if (!req.files || req.files.length === 0) {
+        return res.status(400).json({
+          message: "No images uploaded",
+        });
+      }
+
       const uploadPromises = req.files.map((file) =>
         uploadToCloudinary(
           file.buffer,

@@ -52,7 +52,15 @@
 
 //cloudinary code added for image upload
 
-require("dotenv").config();
+const fs = require("fs");
+const path = require("path");
+const dotenv = require("dotenv");
+
+const envPath = path.resolve(__dirname, ".env");
+const rootEnvPath = path.resolve(__dirname, "../.env");
+const configPath = fs.existsSync(envPath) ? envPath : rootEnvPath;
+
+dotenv.config({ path: configPath });
 
 const express = require("express");
 const cors = require("cors");
