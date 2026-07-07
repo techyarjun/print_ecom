@@ -65,6 +65,25 @@ const cloudinary = require("../config/cloudinary");
 
 const router = express.Router();
 
+router.get("/cloudinary-test", async (req, res) => {
+  try {
+    const result = await cloudinary.api.ping();
+
+    res.json({
+      success: true,
+      result,
+    });
+  } catch (error) {
+    console.error("Cloudinary test error:", error);
+
+    res.status(500).json({
+      success: false,
+      message: error.message,
+      http_code: error.http_code,
+    });
+  }
+});
+
 const storage = multer.memoryStorage();
 
 const upload = multer({
