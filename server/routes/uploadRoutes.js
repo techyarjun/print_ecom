@@ -25,7 +25,7 @@ router.post(
   upload.array("images", 10),
   (req, res) => {
     res.json({
-      imageUrls: req.files.map((file) => `http://localhost:5000/uploads/products/${file.filename}`),
+      imageUrls: req.files.map((file) => `https://print-ecom-server.onrender.com/uploads/products/${file.filename}`),
     });
   }
 );
@@ -35,7 +35,7 @@ router.post(
   upload.single("image"),
   (req, res) => {
     res.json({
-      imageUrl: `http://localhost:5000/uploads/products/${req.file.filename}`,
+      imageUrl: `https://print-ecom-server.onrender.com/uploads/products/${req.file.filename}`,
     });
   }
 );
@@ -46,7 +46,7 @@ router.post(
   (req, res) => {
     const imageUrls = req.files.map(
       (file) =>
-        `http://localhost:5000/uploads/products/${file.filename}`
+        `https://print-ecom-server.onrender.com/uploads/products/${file.filename}`
     );
 
     res.json({
