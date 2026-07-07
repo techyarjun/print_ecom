@@ -1,25 +1,16 @@
 const { v2: cloudinary } = require("cloudinary");
 
-const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
-const apiKey = process.env.CLOUDINARY_API_KEY;
-const apiSecret = process.env.CLOUDINARY_API_SECRET;
+// Render already provides CLOUDINARY_URL
+// Cloudinary SDK automatically reads it from process.env
 
-console.log("Cloudinary env presence:", {
-  cloudName: !!cloudName,
-  apiKey: !!apiKey,
-  apiSecret: !!apiSecret,
+console.log("Cloudinary URL presence:", {
+  cloudinaryUrl: !!process.env.CLOUDINARY_URL,
 });
 
-if (!cloudName || !apiKey || !apiSecret) {
+if (!process.env.CLOUDINARY_URL) {
   console.error(
-    "Cloudinary config missing. Set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET in your environment."
+    "Cloudinary config missing. Set CLOUDINARY_URL in environment variables."
   );
 }
-
-cloudinary.config({
-  cloud_name: cloudName,
-  api_key: apiKey,
-  api_secret: apiSecret,
-});
 
 module.exports = cloudinary;
