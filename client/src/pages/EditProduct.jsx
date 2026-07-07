@@ -80,7 +80,7 @@ function EditProduct() {
         });
 
         const uploadRes = await axios.post(
-          "http://localhost:5000/api/upload/products-multiple",
+          "https://print-ecom-server.onrender.com/api/upload/products-multiple",
           uploadData,
           {
             headers: {
