@@ -42,23 +42,31 @@
 
 // module.exports = cloudinary;
 
+
+
 const { v2: cloudinary } = require("cloudinary");
 
-if (!process.env.CLOUDINARY_URL) {
-  throw new Error("CLOUDINARY_URL is missing");
+const cloudName = process.env.CLOUDINARY_CLOUD_NAME?.trim();
+const apiKey = process.env.CLOUDINARY_API_KEY?.trim();
+const apiSecret = process.env.CLOUDINARY_API_SECRET?.trim();
+
+if (!cloudName || !apiKey || !apiSecret) {
+  throw new Error("Missing Cloudinary environment variables");
 }
 
-// Cloudinary SDK reads CLOUDINARY_URL automatically
 cloudinary.config({
+  cloud_name: cloudName,
+  api_key: apiKey,
+  api_secret: apiSecret,
   secure: true,
 });
 
 const config = cloudinary.config();
 
-console.log("Cloudinary SDK config:", {
-  cloud_name: !!config.cloud_name,
-  api_key: !!config.api_key,
-  api_secret: !!config.api_secret,
+console.log("Cloudinary config check:", {
+  cloud_name: config.cloud_name,
+  api_key_length: String(config.api_key || "").length,
+  api_secret_length: String(config.api_secret || "").length,
 });
 
 module.exports = cloudinary;
