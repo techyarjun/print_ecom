@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -24,6 +24,11 @@ const Profile = () => {
   const [user, setUser] = useState(null);
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const personalInfoRef = useRef(null);
+  const ordersRef = useRef(null);
+  const addressRef = useRef(null);
+  const walletRef = useRef(null);
 
   const token = localStorage.getItem("token");
 
@@ -82,6 +87,38 @@ const Profile = () => {
     navigate("/login");
   };
 
+  const editProfileHandler = () => {
+    personalInfoRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const ordersHandler = () => {
+    navigate("/orders");
+  };
+
+  const addressesHandler = () => {
+    navigate("/addresses");
+  };
+
+  const walletHandler = () => {
+    navigate("/wallet");
+  };
+
+  const settingsHandler = () => {
+    navigate("/settings");
+  };
+
+  const addAddressHandler = () => {
+    navigate("/addresses");
+  };
+
+  const addMoneyHandler = () => {
+    navigate("/wallet");
+  };
+
+  const viewTransactionsHandler = () => {
+    navigate("/wallet");
+  };
+
   const getInitial = () => {
     if (!user?.name) return "U";
 
@@ -135,36 +172,27 @@ const Profile = () => {
           </div>
 
           <div className="profile-sidebar-menu">
-            <button className="profile-menu-item active">
+            <button className="profile-menu-item active" onClick={editProfileHandler}>
               <FiUser />
               <span>My Profile</span>
             </button>
 
-            <button
-              className="profile-menu-item"
-              onClick={() => navigate("/my-orders")}
-            >
+            <button className="profile-menu-item" onClick={ordersHandler}>
               <FiPackage />
               <span>My Orders</span>
             </button>
 
-            <button
-              className="profile-menu-item"
-              onClick={() => navigate("/addresses")}
-            >
+            <button className="profile-menu-item" onClick={addressesHandler}>
               <FiMapPin />
               <span>Addresses</span>
             </button>
 
-            <button
-              className="profile-menu-item"
-              onClick={() => navigate("/wallet")}
-            >
+            <button className="profile-menu-item" onClick={walletHandler}>
               <FiCreditCard />
               <span>Wallet</span>
             </button>
 
-            <button className="profile-menu-item">
+            <button className="profile-menu-item" onClick={settingsHandler}>
               <FiSettings />
               <span>Settings</span>
             </button>
@@ -188,14 +216,17 @@ const Profile = () => {
 
           {/* PERSONAL INFORMATION */}
 
-          <section className="profile-dashboard-card personal-info-section">
+          <section
+            className="profile-dashboard-card personal-info-section"
+            ref={personalInfoRef}
+          >
             <div className="profile-section-header">
               <div>
                 <h1>Personal Information</h1>
                 <p>Manage your personal information</p>
               </div>
 
-              <button className="profile-dark-button">
+              <button className="profile-dark-button" onClick={() => navigate("/profile/edit") }>
                 <FiEdit2 />
                 Edit Profile
               </button>
@@ -244,7 +275,10 @@ const Profile = () => {
 
           {/* ================= ORDERS ================= */}
 
-          <section className="profile-dashboard-card orders-section">
+          <section
+            className="profile-dashboard-card orders-section"
+            ref={ordersRef}
+          >
             <div className="profile-section-header">
               <div>
                 <h1>My Orders</h1>
@@ -253,7 +287,7 @@ const Profile = () => {
 
               <button
                 className="profile-text-button"
-                onClick={() => navigate("/my-orders")}
+                onClick={ordersHandler}
               >
                 View All Orders
                 <FiArrowRight />
@@ -340,14 +374,17 @@ const Profile = () => {
 
             {/* SAVED ADDRESS */}
 
-            <section className="profile-dashboard-card address-section">
+            <section
+              className="profile-dashboard-card address-section"
+              ref={addressRef}
+            >
               <div className="profile-section-header">
                 <div>
                   <h1>Saved Addresses</h1>
                   <p>Manage your delivery addresses</p>
                 </div>
 
-                <button className="address-add-text">
+                <button className="address-add-text" onClick={addAddressHandler}>
                   Add New
                 </button>
               </div>
@@ -363,7 +400,7 @@ const Profile = () => {
                     Add an address for faster checkout.
                   </p>
 
-                  <button className="orange-add-address-button">
+                  <button className="orange-add-address-button" onClick={addAddressHandler}>
                     <FiPlus />
                     Add Address
                   </button>
@@ -374,7 +411,10 @@ const Profile = () => {
 
             {/* WALLET */}
 
-            <section className="profile-dashboard-card wallet-section">
+            <section
+              className="profile-dashboard-card wallet-section"
+              ref={walletRef}
+            >
               <div className="profile-section-header">
                 <div>
                   <h1>Wallet</h1>
@@ -402,11 +442,11 @@ const Profile = () => {
               </div>
 
               <div className="wallet-actions">
-                <button className="wallet-add-button">
+                <button className="wallet-add-button" onClick={addMoneyHandler}>
                   Add Money
                 </button>
 
-                <button className="wallet-transaction-button">
+                <button className="wallet-transaction-button" onClick={viewTransactionsHandler}>
                   View Transactions
                 </button>
               </div>

@@ -114,7 +114,10 @@ import Customize from "./pages/customProduct/Customize";
 
 import AIStudio from "./pages/AiStudio/AIStudio";
 import Editor from "./pages/AiStudio/Editor";
-
+import Addresses from "./pages/Addresses";
+import Wallet from "./pages/Wallet";
+import Settings from "./pages/Settings";
+import EditProfile from "./pages/EditProfile";
 
 function App() {
   return (
@@ -154,6 +157,11 @@ function App() {
           <Route
             path="/profile"
             element={<Profile />}
+          />
+
+          <Route
+            path="/profile/edit"
+            element={<EditProfile />}
           />
 
           <Route
@@ -248,6 +256,20 @@ function App() {
             element={<Contact />}
           />
 
+          <Route
+            path="/addresses"
+            element={<Addresses />}
+          />
+
+          <Route
+            path="/wallet"
+            element={<Wallet />}
+          />
+
+          <Route
+            path="/settings"
+            element={<Settings />}
+          />
 
           {/* AI Studio */}
 
